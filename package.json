@@ -1,5 +1,5 @@
 {
-  "name": "gulp-playground",
+  "name": "gulp-react-starter-kit",
   "dependencies": {},
   "browserify": {
     "transform": [
