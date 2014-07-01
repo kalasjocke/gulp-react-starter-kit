@@ -1,0 +1,18 @@
+{
+  "name": "gulp-playground",
+  "dependencies": {},
+  "browserify": {
+    "transform": [
+      "coffeeify"
+    ]
+  },
+  "devDependencies": {
+    "browserify": "^4.1.11",
+    "coffeeify": "^0.6.0",
+    "gulp": "^3.8.2",
+    "gulp-if": "^1.2.1",
+    "gulp-streamify": "0.0.5",
+    "gulp-uglify": "^0.3.1",
+    "vinyl-source-stream": "^0.1.1"
+  }
+}
