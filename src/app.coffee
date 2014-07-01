@@ -1,4 +1,15 @@
-bar = require './bar'
+React = require 'react'
 
-foo = ->
-  bar "baz"
+child = require './child'
+
+
+{h1, h2, div} = React.DOM
+
+App = React.createClass
+  render: ->
+    div {},
+      h1 {}, "Foo"
+      h2 {}, "Bar"
+      child()
+
+React.renderComponent App(), document.getElementById('app')
