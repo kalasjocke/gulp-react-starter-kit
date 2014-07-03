@@ -6,10 +6,12 @@ streamify = require 'gulp-streamify'
 source = require 'vinyl-source-stream'
 browserify = require 'browserify'
 watchify = require 'watchify'
+connect = require 'gulp-connect'
 prettyHrtime = require 'pretty-hrtime'
 
 
 env = process.env.NODE_ENV
+dest = './dist'
 
 gulp.task 'watch', ['setWatch', 'browserify']
 
@@ -46,10 +48,15 @@ gulp.task 'browserify', ->
       .on('error', error)
       .pipe(source('app.js'))
       .pipe(gulpif(env is 'production', streamify(uglify())))
-      .pipe(gulp.dest('./dist/'))
+      .pipe(gulp.dest(dest))
       .on('end', end.bind(@, startTime))
 
   if global.isWatching
     bundler.on 'update', bundle
 
   return bundle()
+
+gulp.task 'connect', ['watch'], ->
+  connect.server
+    root: dest
+    port: 9000
